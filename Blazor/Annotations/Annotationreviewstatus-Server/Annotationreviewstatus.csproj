@@ -6,9 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\Data\BEDPR2893Q_2022-23.pdf" />
-    <Content Remove="wwwroot\Data\FormFillingDocumentAdobe.pdf" />
+  <ItemGroup>    
+	<Content Include="wwwroot\Data\PDF_Succinctly.pdf"/>
   </ItemGroup>
 
   <ItemGroup>
