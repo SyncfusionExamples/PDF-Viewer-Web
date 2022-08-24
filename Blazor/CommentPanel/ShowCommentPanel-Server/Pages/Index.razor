@@ -1,0 +1,20 @@
+﻿@page "/"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+<style>
+    .e-control e-textbox e-lib e-input {
+        color: red;
+    }
+</style>
+
+<SfPdfViewerServer IsCommentPanelOpen="true" Width="1000" Height="700" DocumentPath="@documentPath">   
+</SfPdfViewerServer>
+
+@code{
+
+    private string documentPath { get; set; } = "wwwroot/Data/PDF_Succinctly.pdf";    
+
+}
