@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Data\BEDPR2893Q_2022-23.pdf" />
+    <Content Remove="wwwroot\Data\FormFillingDocumentAdobe.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Syncfusion.Blazor.PdfViewerServer.Windows" Version="20.2.0.45" />
   </ItemGroup>
 
