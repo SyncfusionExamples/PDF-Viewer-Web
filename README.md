@@ -29,19 +29,32 @@ The Blazor PDF Viewer component allows to view, print, and annotate the PDF file
 
 <table>
  <tr>
-  <td><a href="Blazor/Annotations/Annotationreviewstatus-Server">Annotation review status in Syncfusion Blazor PDFViewer</a></td>
+  <td><a href="Blazor/Annotations/Annotation Review Status - Server">Annotation review status in Syncfusion Blazor PDFViewer</a></td>
  </tr>
   <tr>
-  <td><a href="Blazor/Annotations/DisplayAnnotationToolbar">Show AnnotationToolbar in Syncfusion Blazor PDFViewer</a></td>
+  <td><a href="Blazor/Annotations/Show AnnotationToolbar">Show AnnotationToolbar in Syncfusion Blazor PDFViewer</a></td>
  </tr>
  <tr>
-  <td><a href="Blazor/CommentPanel/ShowCommentPanel-Server">Show CommentPanel in Syncfusion Blazor PDFViewer</a></td>
+  <td><a href="Blazor/CommentPanel/Show CommentPanel-Server">Show CommentPanel in Syncfusion Blazor PDFViewer</a></td>
  </tr>
  <tr>
-  <td><a href="Blazor/DocumentPath/LoadPDFfromBase64-Server">View PDF document loaded from Base64 string in Syncfusion Blazor PDFViewer</a></td>
+ <td><a href="Blazor/DocumentPath/Load PDF from Base64 - Server">View PDF document loaded from Base64 string in Syncfusion Blazor PDFViewer</a></td>
  </tr>
  <tr>
- <td><a href="Blazor/DownloadFileName">Filename for the downloadable file in Syncfusion Blazor PDFViewer</a></td>
+ <td><a href="Blazor/DocumentPath/Load PDF from Stream - Wasm">View PDF document loaded from MemoryStream in Syncfusion Blazor PDFViewer</a></td>
+ </tr>
+ <tr>
+ <td><a href="Blazor/DocumentPath/Load PDF from Url - Server">View PDF document loaded from Url link in Syncfusion Blazor PDFViewer</a></td>
+ </tr>
+ <tr>
+ <td><a href="Blazor/DocumentPath/Load PDF using EmbedTag - Wasm">View PDF document loaded using embedtag in Syncfusion Blazor PDFViewer</a></td>
+ </tr>
+ <tr>
+ <td><a href="Blazor/Download Filename/Download file with filename">Filename for the downloadable file in Syncfusion Blazor PDFViewer</a></td>
+ </tr>
+ <tr>
+ <td><a href="Blazor/Toolbar/Custom Toolbar">Customizing the Toolbar in Syncfusion Blazor PDFViewer</a>
+ </td>
  </tr> 
 </table>
 
@@ -57,7 +70,7 @@ This is a commercial product and requires a paid license for possession or use. 
 ## About Syncfusion
 Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 28,000+ customers and more than 1 million users, including large financial institutions, Fortune 500 companies, and global IT consultancies.
  
-Today, we provide 1700+ controls and frameworks for web ([Blazor](https://www.syncfusion.com/blazor-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET Core](https://www.syncfusion.com/aspnet-core-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET MVC](https://www.syncfusion.com/aspnet-mvc-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET WebForms](https://www.syncfusion.com/jquery/aspnet-webforms-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [JavaScript](https://www.syncfusion.com/javascript-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Angular](https://www.syncfusion.com/angular-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [React](https://www.syncfusion.com/react-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Vue](https://www.syncfusion.com/vue-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), and [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)), mobile ([Xamarin](https://www.syncfusion.com/xamarin-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [UWP](https://www.syncfusion.com/uwp-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), and [JavaScript](https://www.syncfusion.com/javascript-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)), and desktop development ([Windows Forms](https://www.syncfusion.com/winforms-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [WPF](https://www.syncfusion.com/wpf-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [WinUI(Preview)](https://www.syncfusion.com/winui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) and [UWP](https://www.syncfusion.com/uwp-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)). We provide ready-to-deploy enterprise software for dashboards, reports, data integration, and big data processing. Many customers have saved millions in licensing fees by deploying our software.
+Today, we provide 1700+ controls and frameworks for web ([Blazor](https://www.syncfusion.com/blazor-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET Core](https://www.syncfusion.com/aspnet-core-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET MVC](https://www.syncfusion.com/aspnet-mvc-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [ASP.NET WebForms](https://www.syncfusion.com/jquery/aspnet-webforms-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [JavaScript](https://www.syncfusion.com/javascript-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Angular](https://www.syncfusion.com/angular-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [React](https://www.syncfusion.com/react-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Vue](https://www.syncfusion.com/vue-ui-components?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), and [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)), mobile ([Xamarin](https://www.syncfusion.com/xamarin-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [UWP](https://www.syncfusion.com/uwp-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), and [JavaScript](https://www.syncfusion.com/javascript-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)), and desktop development ([Windows Forms](https://www.syncfusion.com/winforms-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [WPF](https://www.syncfusion.com/wpf-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [WinUI](https://www.syncfusion.com/winui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples), [Flutter](https://www.syncfusion.com/flutter-widgets?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) and [UWP](https://www.syncfusion.com/uwp-ui-controls?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples)). We provide ready-to-deploy enterprise software for dashboards, reports, data integration, and big data processing. Many customers have saved millions in licensing fees by deploying our software.
 ___
 
 [sales@syncfusion.com](mailto:sales@syncfusion.com?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) | [www.syncfusion.com](https://www.syncfusion.com?utm_source=github&utm_medium=github&utm_campaign=github-xlsio-examples) | Toll Free: 1-888-9 DOTNET
