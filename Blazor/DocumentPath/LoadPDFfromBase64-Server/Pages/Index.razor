@@ -9,7 +9,7 @@
     public string Path { get; set; }     
 
     protected override async Task OnInitializedAsync()
-    {   //Returns the content of the PDF document as byte Array.     
+    {   //Returns the content of the PDF document as byte array.     
         byte[] byteArray = System.IO.File.ReadAllBytes("wwwroot/Data/PDF Succinctly.pdf");
         string base64String = Convert.ToBase64String(byteArray);
         string base64prefix = "data:application/pdf;base64,";
