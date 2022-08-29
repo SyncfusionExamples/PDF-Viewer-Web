@@ -9,7 +9,7 @@
 @using System.IO
 @inject IJSRuntime JSRuntime
 
-    
+    <!--Custom Toolbar-->
     <SfToolbar>
         <ToolbarEvents Clicked="@ToolbarClick" ></ToolbarEvents>
         <ToolbarItems>
@@ -71,11 +71,13 @@
         </ToolbarItems>
     </SfToolbar>
 
+<!--PDFViewer-->
 <SfPdfViewerServer @ref="PDFViewer" ID="pdfviewer" DocumentPath="PDF_Succinctly.pdf" ServiceUrl="https://ej2services.syncfusion.com/production/web-services/api/pdfviewer" EnableNavigationToolbar="false" EnableAnnotationToolbar="false" EnableToolbar="false" InteractionMode=@InteractionMode Height="100%" Width="100%">
     <PdfViewerEvents DocumentLoaded="@DocumentLoaded" PageChanged="@OnPageChanged"></PdfViewerEvents>
 </SfPdfViewerServer>
 
 @code{
+    #region binded values
     SfPdfViewerServer PDFViewer;
     SfComboBox<string, ZoomValues> ZoomCombo { get; set; }
     SfButton SubmitFormButton;
@@ -128,15 +130,19 @@
     public int TotalPages { get; set; } = 0;
     public int CurrentPageNumber = 0;
     public InteractionMode InteractionMode { get; set; } = InteractionMode.TextSelection;
+    #endregion
 
+    //Triggers when the toolbar is created.
     private async void AddItems()
     {
         List<ZoomValues> newItem = new List<ZoomValues> { new ZoomValues { Id = "9", Text = FitPage },
-         new ZoomValues() {Id = "10", Text=FitWidth},
-         new ZoomValues() {Id = "11", Text=Automatic}};
-        await ZoomCombo.AddItems(newItem);
+        new ZoomValues() {Id = "10", Text=FitWidth},
+        new ZoomValues() {Id = "11", Text=Automatic}};
+        //Add new items to the popup list.
+        await ZoomCombo.AddItemsAsync(newItem);
     }
 
+    //Triggers while loading document in to the PDFViewer.
     private void DocumentLoaded(LoadEventArgs args)
     {
         TotalPages = PDFViewer.PageCount;
@@ -174,26 +180,30 @@
 
             if (args.Value == FitPage)
             {
-                await PDFViewer.FitToPage();
+                //Scales the page to fit with in the container of the PDFViewer.
+                await PDFViewer.FitToPageAsync();
                 ZoomInitialValue = ZoomValue + "%";
                 StateHasChanged();
             }
             else if (args.Value == FitWidth)
             {
-                await PDFViewer.FitToWidth();
+                //Scales the page to fit the page width with in the container width of the PDFViewer.
+                await PDFViewer.FitToWidthAsync();
                 ZoomInitialValue = ZoomValue + "%";
                 StateHasChanged();
             }
             else if (args.Value == Automatic)
             {
-                await PDFViewer.ZoomTo(100);
+                //Zoom the PDF document to the given zoom value.
+                await PDFViewer.ZoomAsync(100);
                 ZoomInitialValue = ZoomValue + "%";
                 StateHasChanged();
             }
             else if (int.TryParse(args.Value.Replace("%", ""), out int value))
-            {
+            {                
                 zoomInit = Convert.ToInt32(args.Value.Replace("%", ""));
-                await PDFViewer.ZoomTo(zoomInit);
+                //Zoom the PDF document to the given zoom value.
+                await PDFViewer.ZoomAsync(zoomInit);
             }
             else
             {
@@ -234,6 +244,7 @@
         StateHasChanged();
     }
     
+    //Triggers when the value of the numeric textbox changes.
     public async void GoToPage(Syncfusion.Blazor.Inputs.ChangeEventArgs<int> args)
     {
         int currentValue = args.Value;
@@ -248,7 +259,8 @@
         if (currentValue == args.Value && args.Value != 0)
         {
             CurrentPageNumber = args.Value;
-            await PDFViewer.GoToPage(args.Value);
+            //Navigate to given page number in loaded document of the PDFViewer.
+            await PDFViewer.GoToPageAsync(args.Value);
             StateHasChanged();
         }
         else
@@ -257,6 +269,7 @@
         }
     }
 
+    //Triggers when there is change in the current page number.
     private void OnPageChanged(PageChangeEventArgs args)
     {
         CurrentPageNumber = (int)args.CurrentPageNumber;
@@ -284,6 +297,7 @@
         StateHasChanged();
     }
 
+    //This method will get invoked while clicking the toolbar items.
     public async void ToolbarClick(ClickEventArgs args)
     {
         if (args.Item != null)
@@ -294,31 +308,36 @@
                     await JSRuntime.InvokeAsync<string>("openFile");
                     break;
                 case "e-pv-first-page-navigation-container":
-                    await PDFViewer.GoToFirstPage();
+                    //Navigate to first page of the document loaded in the PDFViewer.
+                    await PDFViewer.GoToFirstPageAsync();
                     LastPageDisable = false;
                     NextPageDisable = false;
                     PreviousPageDisable = true;
                     FirstPageDisable = true;
                     break;
                 case "e-pv-previous-page-navigation-container":
-                    await PDFViewer.GoToPreviousPage();
+                    //Navigate to previous page of the PDF document loaded in the PDFViewer.
+                    await PDFViewer.GoToPreviousPageAsync();
                     LastPageDisable = false;
                     NextPageDisable = false;
                     break;
                 case "e-pv-next-page-navigation-container":
-                    await PDFViewer.GoToNextPage();
+                    //Navigate to next page of the PDF document loaded in the PDFViewer.
+                    await PDFViewer.GoToNextPageAsync();
                     FirstPageDisable = false;
                     PreviousPageDisable = false;
                     break;
                 case "e-pv-last-page-navigation-container":
-                    await PDFViewer.GoToLastPage();
+                    //Navigate to last page of the PDF document loaded in the PDFViewer.
+                    await PDFViewer.GoToLastPageAsync();
                     FirstPageDisable = false;
                     PreviousPageDisable = false;
                     NextPageDisable = true;
                     LastPageDisable = true;
                     break;
                 case "e-pv-zoom-out-container":
-                    await PDFViewer.ZoomOut();
+                    //Magnifies the page to the previous value in the zoom drop down list.
+                    await PDFViewer.ZoomOutAsync();
                     if (PDFViewer.ZoomValue <= 10)
                     {
                         ZoomOutDisabled = true;
@@ -328,7 +347,8 @@
                     StateHasChanged();
                     break;
                 case "e-pv-zoom-in-container":
-                    await PDFViewer.ZoomIn();
+                    //Scales the page to the next value in the zoom drop down list.
+                    await PDFViewer.ZoomInAsync();
                     if (PDFViewer.ZoomValue >= 400)
                     {
                         ZoomInDisabled = true;
@@ -347,25 +367,31 @@
                     StateHasChanged();
                     break;
                 case "e-pv-undo-container":
-                    await PDFViewer.Undo();
+                    //Perform undo action for the edited annotations.
+                    await PDFViewer.UndoAsync();
                     break;
                 case "e-pv-redo-container":
-                    await PDFViewer.Redo();
+                    //Perform redo action for the edited annotations.
+                    await PDFViewer.RedoAsync();
                     break;
                 case "e-pv-submit":
-                    await PDFViewer.ExportFormFields();
+                    //Perform export action in the PDFViewer.
+                    await PDFViewer.ExportFormFieldsAsync();
                     break;
                 case "e-pv-comment-container":
+                    //Set annotation type to be added in the next user interaction of the document in the PDFViewer.
                     await PDFViewer.SetAnnotationModeAsync(AnnotationType.StickyNotes);                    
                     StateHasChanged();
                     break;
                 case "e-pv-text-search-container":
+                    //Searches the target text in the document and highlights the occurences in the PDF pages.
                     await PDFViewer.SearchTextAsync("PDF", false);
                     StateHasChanged();
                     break;
                 case "e-pv-annotation-container":
                     if (AnnotationToolbarVisible)
                     {
+                        //Shows or hides the annotation toolbar in the PDFViewer.
                         PDFViewer.ShowAnnotationToolbar(false);
                         AnnotationToolbarVisible = false;
                     }
@@ -376,10 +402,12 @@
                     }
                     break;
                 case "e-pv-print-document-container":
-                    await PDFViewer.Print();
+                    //Print the PDF document being loaded in the PDFViewer.
+                    await PDFViewer.PrintAsync();
                     break;
                 case "e-pv-download-document-container":
-                    await PDFViewer.Download();
+                    //Downloads the PDF document being loaded in the PDFViewer.
+                    await PDFViewer.DownloadAsync();
                     break;
                 case "e-pv-save-container":
                     //You can implement your code here
@@ -389,6 +417,7 @@
     }
 }
 
+<!--Style for custom toolbar-->
 <style>
     .e-pv-icon::before {
       font-family: 'e-icons';
